@@ -45,6 +45,7 @@
   <script src="https://static.line-scdn.net/liff/edge/versions/2.4.0/sdk.js"></script>
   <script>
     function createUniversalLink() {
+      
     }
 
     async function shareMsg() {
@@ -72,6 +73,10 @@
     }
 
     async function getUserProfile() {
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").append(profile.userId)
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
     }
 
     function getEnvironment() {
@@ -92,7 +97,7 @@
     async function main() {
       await liff.init({ liffId: "1654919336-Pz1RoMX8" })
       getEnvironment()
-      // getUserProfile()
+      getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
