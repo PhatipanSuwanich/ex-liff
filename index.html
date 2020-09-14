@@ -70,13 +70,25 @@
     }
 
     function getContext() {
+      //1-1 , room
+      document.getElementById("type").append(liff.getContext().type)
+      //compact, tall, full
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      //id 1-1
+      document.getElementById("utotId").append(liff.getContext().utotId)
+      //room id
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      //group id
+      document.getElementById("groupId").append(liff.getContext().groupId)
     }
 
     async function getUserProfile() {
+      const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").append(profile.userId)
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
+      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
     }
 
     function getEnvironment() {
@@ -98,7 +110,7 @@
       await liff.init({ liffId: "1654919336-Pz1RoMX8" })
       getEnvironment()
       getUserProfile()
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
